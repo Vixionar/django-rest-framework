@@ -1160,7 +1160,7 @@ class ModelSerializer(Serializer):
         Create a read only field for model methods and properties.
         """
         field_class = ReadOnlyField
-        field_kwargs = {}
+        field_kwargs = {'help_text': getattr(model_class, field_name).__doc__}
 
         return field_class, field_kwargs
 
